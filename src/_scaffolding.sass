@@ -19,7 +19,7 @@
 
   p &
     text-decoration: underline
-    display: inline;
+    display: inline
 
 
 @if $frow-enable-html-basics == true
@@ -129,7 +129,7 @@
         &:focus,
         &:active
           color: lighten($link-color, 40%)
-          text-decoration: none;
+          text-decoration: none
 
     &.button-none
       &,
@@ -165,12 +165,11 @@
   color: $text-color
   display: block
   font-size: 15px
-  padding: 8px 5px 4px
   width: 100%
   transition: border-color $animate-speed, color $animate-speed
 
   &::placeholder
-    opacity: 1;
+    opacity: 1
     color: $form-placeholder-color
 
   &:placeholder-shown
@@ -180,7 +179,7 @@
     color: $form-placeholder-color
 
   &::-moz-placeholder
-    opacity: 1;
+    opacity: 1
     color: $form-placeholder-color
 
   &:-ms-input-placeholder
@@ -343,7 +342,7 @@
     // Range
     &[type="range"]
       border: none
-      padding: 13px 0px
+      padding: 13px 0
       -webkit-appearance: none
       width: 100%
       cursor: pointer
