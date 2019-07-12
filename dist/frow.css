@@ -506,7 +506,6 @@ input {
   color: #333;
   display: block;
   font-size: 15px;
-  padding: 8px 5px 4px;
   width: 100%;
   transition: border-color 0.4s, color 0.4s; }
   input::-webkit-input-placeholder {
@@ -615,7 +614,7 @@ input {
         background-color: #EAEAEA; }
   input[type="range"] {
     border: none;
-    padding: 13px 0px;
+    padding: 13px 0;
     -webkit-appearance: none;
     width: 100%;
     cursor: pointer; }
@@ -869,7 +868,6 @@ textarea {
   color: #333;
   display: block;
   font-size: 15px;
-  padding: 8px 5px 4px;
   width: 100%;
   transition: border-color 0.4s, color 0.4s;
   min-height: 50px;
