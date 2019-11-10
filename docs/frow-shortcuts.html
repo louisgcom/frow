@@ -315,6 +315,34 @@
               </div>
             </div>
           </div>
+          <pre class="grid-frow-code">
+<!--       -->class="frow row-evenly" <span class="fake-comment">// Similar to <a href="frow-shortcuts.html#justify-content">.justify-evenly</a> but also aligns items vertically</span>
+<!--     --></pre>
+          <div class="grid-example">
+            <div class="frow row-evenly">
+              <div class="col-xs-1-4">
+                <div class="grid-example-div">
+                  <p class="frow centered">
+                    1st Div
+                  </p>
+                </div>
+              </div>
+              <div class="col-xs-1-4">
+                <div class="grid-example-div" style="height: 80px;">
+                  <p class="frow centered">
+                    2nd Div
+                  </p>
+                </div>
+              </div>
+              <div class="col-xs-1-4">
+                <div class="grid-example-div">
+                  <p class="frow centered">
+                    3rd Div
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <h5 id="columns">
           <a href="#columns">
@@ -741,6 +769,34 @@
               </div>
             </div>
           </div>
+          <pre class="grid-frow-code">
+<!--       -->class="frow justify-evenly"
+<!--     --></pre>
+          <div class="grid-example">
+            <div class="frow justify-evenly">
+              <div class="col-xs-1-4">
+                <div class="grid-example-div">
+                  <p class="frow centered">
+                    1st Div
+                  </p>
+                </div>
+              </div>
+              <div class="col-xs-1-4">
+                <div class="grid-example-div">
+                  <p class="frow centered">
+                    2nd Div
+                  </p>
+                </div>
+              </div>
+              <div class="col-xs-1-4">
+                <div class="grid-example-div">
+                  <p class="frow centered">
+                    3rd Div
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <h5 id="align-items">
           <a href="#align-items">
@@ -751,7 +807,7 @@
           <pre class="grid-frow-code">
 <!--       -->class="frow items-start"
 <!--     --></pre>
-          <div class="grid-example">
+          <div class="grid-example py-0">
             <div class="frow items-start" style="height:200px;">
               <div class="col-xs-1-4">
                 <div class="grid-example-div">
@@ -779,7 +835,7 @@
           <pre class="grid-frow-code">
 <!--       -->class="frow items-end"
 <!--     --></pre>
-          <div class="grid-example always-margin">
+          <div class="grid-example always-margin py-0">
             <div class="frow items-end" style="height:200px;">
               <div class="col-xs-1-4">
                 <div class="grid-example-div">
@@ -807,7 +863,7 @@
           <pre class="grid-frow-code">
 <!--       -->class="frow items-center"
 <!--     --></pre>
-          <div class="grid-example always-margin">
+          <div class="grid-example always-margin py-0">
             <div class="frow items-center" style="height:200px;">
               <div class="col-xs-1-4">
                 <div class="grid-example-div">
@@ -835,7 +891,7 @@
           <pre class="grid-frow-code">
 <!--       -->class="frow items-stretch"
 <!--     --></pre>
-          <div class="grid-example">
+          <div class="grid-example py-0">
             <div class="frow items-stretch" style="height:200px;">
               <div class="col-xs-1-4 grid-example-stretch height-100">
                 <div class="plain-grid-example-div">
@@ -863,7 +919,7 @@
           <pre class="grid-frow-code">
 <!--       -->class="frow items-baseline" <span class="fake-comment">// Aligns by the first line of text's baseline</span>
 <!--     --></pre>
-          <div class="grid-example">
+          <div class="grid-example py-0">
             <div class="frow items-baseline" style="height:200px;">
               <div class="col-xs-1-4 grid-example-stretch" style="min-height:100px;">
                 <div class="plain-grid-example-div">
@@ -898,7 +954,7 @@
           <pre class="grid-frow-code">
 <!--       -->class="frow content-start" <span class="fake-comment">// Only works when a single .frow wraps to multiple rows</span>
 <!--     --></pre>
-          <div class="grid-example">
+          <div class="grid-example py-0">
             <div class="frow content-start" style="min-height:250px;">
               <div class="col-xs-1-4">
                 <div class="grid-example-div">
@@ -940,7 +996,7 @@
           <pre class="grid-frow-code">
 <!--       -->class="frow content-end" <span class="fake-comment">// Only works when a single .frow wraps to multiple rows</span>
 <!--     --></pre>
-          <div class="grid-example">
+          <div class="grid-example py-0">
             <div class="frow content-end" style="min-height:250px;">
               <div class="col-xs-1-4">
                 <div class="grid-example-div">
@@ -982,7 +1038,7 @@
           <pre class="grid-frow-code">
 <!--       -->class="frow content-center" <span class="fake-comment">// Only works when a single .frow wraps to multiple rows</span>
 <!--     --></pre>
-          <div class="grid-example">
+          <div class="grid-example py-0">
             <div class="frow content-center" style="min-height:250px;">
               <div class="col-xs-1-4">
                 <div class="grid-example-div">
@@ -1024,7 +1080,7 @@
           <pre class="grid-frow-code">
 <!--       -->class="frow content-between" <span class="fake-comment">// Only works when a single .frow wraps to multiple rows</span>
 <!--     --></pre>
-          <div class="grid-example">
+          <div class="grid-example py-0">
             <div class="frow content-between" style="min-height:250px;">
               <div class="col-xs-1-4">
                 <div class="grid-example-div">
@@ -1066,8 +1122,50 @@
           <pre class="grid-frow-code">
 <!--       -->class="frow content-around" <span class="fake-comment">// Only works when a single .frow wraps to multiple rows</span>
 <!--     --></pre>
-          <div class="grid-example">
+          <div class="grid-example py-0">
             <div class="frow content-around" style="min-height:250px;">
+              <div class="col-xs-1-4">
+                <div class="grid-example-div">
+                  <p class="frow centered">
+                    1st Div
+                  </p>
+                </div>
+              </div>
+              <div class="col-xs-1-4">
+                <div class="grid-example-div">
+                  <p class="frow centered">
+                    2nd Div
+                  </p>
+                </div>
+              </div>
+              <div class="col-xs-1-4">
+                <div class="grid-example-div">
+                  <p class="frow centered">
+                    3rd Div
+                  </p>
+                </div>
+              </div>
+              <div class="col-xs-1-3">
+                <div class="grid-example-div">
+                  <p class="frow centered">
+                    4th Div
+                  </p>
+                </div>
+              </div>
+              <div class="col-xs-1-3">
+                <div class="grid-example-div">
+                  <p class="frow centered">
+                    5th Div
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre class="grid-frow-code">
+<!--       -->class="frow content-evenly" <span class="fake-comment">// Only works when a single .frow wraps to multiple rows</span>
+<!--     --></pre>
+          <div class="grid-example py-0">
+            <div class="frow content-evenly" style="min-height:250px;">
               <div class="col-xs-1-4">
                 <div class="grid-example-div">
                   <p class="frow centered">
