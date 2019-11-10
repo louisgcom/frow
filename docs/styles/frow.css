@@ -2687,6 +2687,15 @@ textarea {
 .text-capitalize {
   text-transform: capitalize !important; }
 
+.text-underline {
+  text-decoration: underline; }
+
+.text-line-through {
+  text-decoration: line-through; }
+
+.text-italic {
+  font-style: italic; }
+
 .visible-print,
 .frow.visible-print {
   display: none !important; }
