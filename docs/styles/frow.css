@@ -2696,6 +2696,11 @@ textarea {
 .text-italic {
   font-style: italic; }
 
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
 .visible-print,
 .frow.visible-print {
   display: none !important; }
