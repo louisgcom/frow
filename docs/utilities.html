@@ -88,6 +88,29 @@
             <div class="tagline">
               Classes to Quickly Tweak Elements
             </div>
+            <h5 id="flexbox-grow-and-shrink-shortcuts">
+              <a href="#flexbox-grow-and-shrink-shortcuts">
+                Flexbox Grow and Shrink Shortcuts
+              </a>
+            </h5>
+            <p>
+              These classes add quick grow and shrink rules to elements within a .frow or flexbox.
+            </p>
+            <pre class="fake-code bottom-margin">
+<!--       --><span class="fake-comment">// For flex-shrink: 0</span>
+<!--       -->&lt;div class="shrink-0"&gt;&lt;/div&gt;
+<!--       --><span class="fake-comment">// Use .shrink-0 when an element is being squished within a .frow</span>
+<!--       -->
+<!--       --><span class="fake-comment">// For flex-shrink: 1</span>
+<!--       -->&lt;div class="shrink-1"&gt;&lt;/div&gt;
+<!--       -->
+<!--       --><span class="fake-comment">// For flex-grow: 0</span>
+<!--       -->&lt;div class="grow-0"&gt;&lt;/div&gt;
+<!--       -->
+<!--       --><span class="fake-comment">// For flex-grow: 1</span>
+<!--       -->&lt;div class="grow-1"&gt;&lt;/div&gt;
+<!--       --><span class="fake-comment">// Use .grow-1 to have an element fill all remaining space within a .frow</span>
+<!--     --></pre>
             <h5 id="margin-and-adding-shortcuts">
               <a href="#margin-and-adding-shortcuts">
                 Margin and Padding Shortcuts
@@ -190,29 +213,10 @@
 <!--       -->&lt;div class="overflow-y-auto"&gt;&lt;/div&gt;
 <!--       -->
 <!--       --><span class="fake-comment">// No shortcut is provided for overflow: scroll as overflow: auto is more popular</span>
-<!--     --></pre>
-            <h5 id="flexbox-grow-and-shrink-shortcuts">
-              <a href="#flexbox-grow-and-shrink-shortcuts">
-                Flexbox Grow and Shrink Shortcuts
-              </a>
-            </h5>
-            <p>
-              These classes add quick grow and shrink rules to elements within a .frow or flexbox.
-            </p>
-            <pre class="fake-code bottom-margin">
-<!--       --><span class="fake-comment">// For flex-shrink: 0</span>
-<!--       -->&lt;div class="shrink-0"&gt;&lt;/div&gt;
-<!--       --><span class="fake-comment">// Use .shrink-0 when an element is being squished within a .frow</span>
 <!--       -->
-<!--       --><span class="fake-comment">// For flex-shrink: 1</span>
-<!--       -->&lt;div class="shrink-1"&gt;&lt;/div&gt;
-<!--       -->
-<!--       --><span class="fake-comment">// For flex-grow: 0</span>
-<!--       -->&lt;div class="grow-0"&gt;&lt;/div&gt;
-<!--       -->
-<!--       --><span class="fake-comment">// For flex-grow: 1</span>
-<!--       -->&lt;div class="grow-1"&gt;&lt;/div&gt;
-<!--       --><span class="fake-comment">// Use .grow-1 to have an element fill all remaining space within a .frow</span>
+<!--       --><span class="fake-comment">// For cutting text off with ellipsis, see: <a href="#text-overflow-shortcuts">
+<!--         -->Text Overflow Shortcuts
+<!--       --></a></span>
 <!--     --></pre>
             <h5 id="box-shadow-shortcuts">
               <a href="#box-shadow-shortcuts">
@@ -272,20 +276,65 @@
               </a>
             </h5>
             <p>
-              Use these pre-made text transform rules to avoid having to make specific classes for elements.
+              Use these reusable text transform rules to avoid having to make specific classes for elements.
             </p>
             <pre class="fake-code bottom-margin">
 <!--       --><span class="fake-comment">// Makes text uppercase</span>
 <!--       -->&lt;p class="text-uppercase"&gt;Hello world&lt;/p&gt;
-<!--       --><span class="fake-comment">// Displays as: HELLO WORLD</span>
+<!--       --><span class="fake-comment">// Displays as: <span class="text-uppercase">Hello world</span></span>
 <!--       -->
 <!--       --><span class="fake-comment">// Makes text lowercase</span>
 <!--       -->&lt;p class="text-lowercase"&gt;Hello world&lt;/p&gt;
-<!--       --><span class="fake-comment">// Displays as: hello world</span>
+<!--       --><span class="fake-comment">// Displays as: <span class="text-lowercase">Hello world</span></span>
 <!--       -->
 <!--       --><span class="fake-comment">// Makes text capitalized</span>
 <!--       -->&lt;p class="text-capitalize"&gt;Hello world&lt;/p&gt;
-<!--       --><span class="fake-comment">// Displays as: Hello World</span>
+<!--       --><span class="fake-comment">// Displays as: <span class="text-capitalize">Hello world</span></span>
+<!--     --></pre>
+            <h5 id="text-decoration-shortcuts">
+              <a href="#text-decoration-shortcuts">
+                Text Decoration/Font Style Shortcuts
+              </a>
+            </h5>
+            <p>
+              Use these reusable text rules to avoid having to make specific classes for elements.
+            </p>
+            <pre class="fake-code bottom-margin">
+<!--       --><span class="fake-comment">// Makes text underlined</span>
+<!--       -->&lt;p class="text-underline"&gt;Hello world&lt;/p&gt;
+<!--       -->
+<!--       --><span class="fake-comment">// Makes text strikethrough</span>
+<!--       -->&lt;p class="text-line-through"&gt;Hello world&lt;/p&gt;
+<!--       -->
+<!--       --><span class="fake-comment">// Makes text italicized</span>
+<!--       -->&lt;p class="text-italic"&gt;Hello world&lt;/p&gt;
+<!--     --></pre>
+            <h5 id="text-overflow-shortcuts">
+              <a href="#text-overflow-shortcuts">
+                Text Overflow Shortcut
+              </a>
+            </h5>
+            <p>
+              Use this reusable text rule to avoid having to make specific classes for elements.
+            </p>
+            <pre class="fake-code bottom-margin">
+<!--       --><span class="fake-comment">// Makes text overflow into ellipsis</span>
+<!--       -->&lt;p class="text-ellipsis"&gt;Text that might be too long for its container&lt;/p&gt;
+<!--       --><span class="fake-comment">// Displays as: <div class="text-ellipsis">
+<!--       -->Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin, justo a vestibulum tincidunt, lorem turpis porta erat, ut dapibus orci purus vitae lacus. Vivamus luctus neque non aliquam posuere. Suspendisse at metus vehicula arcu volutpat accumsan ac eu odio. Aenean congue suscipit nisi, eget bibendum felis ullamcorper ac. Praesent ultrices molestie pulvinar. Suspendisse eleifend convallis risus, a porttitor velit auctor sed. Vestibulum at bibendum ex.
+<!--       --></div></span>
+<!--     --></pre>
+            <h5 id="opacity-shortcuts">
+              <a href="#opacity-shortcuts">
+                Opacity Shortcuts
+              </a>
+            </h5>
+            <p>
+              Reusable classes to quickly set the opacity of an element.
+            </p>
+            <pre class="fake-code bottom-margin">
+<!--       -->&lt;div class="opacity-0"&gt;&lt;/div&gt;<span class="fake-comment">     // Makes element transparent</span>
+<!--       -->&lt;div class="opacity-100"&gt;&lt;/div&gt;<span class="fake-comment">   // Makes element opaque</span>
 <!--     --></pre>
             <h5 id="clickable-not-clickable-shortcuts">
               <a href="#clickable-not-clickable-shortcuts">
