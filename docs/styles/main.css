@@ -10,11 +10,6 @@ input, textarea, select, button {
   font-family: 'Assistant', sans-serif;
 }
 
-h1 {
-  font-size: 50px;
-  height: 52px;
-}
-
 h1 svg {
   width: 120px;
   fill: #339BE8;
@@ -55,14 +50,8 @@ h6 {
 
 /* MD, LG */
 @media (min-width: 992px) {
-  .header.home h1 {
-    font-size: 200px;
-    height: 150px;
-  }
-
   .header.home h1 svg {
     width: 350px;
-    margin-bottom: 20px;
   }
 
   .header.home h2 {
@@ -77,7 +66,7 @@ h6 {
     font-size: 15px;
   }
   h1 {
-    font-size: 50px;
+    font-size: 10px;
   }
   h2 {
     font-size: 20px;

@@ -262,10 +262,6 @@ p a {
   display: inline;
 }
 
-svg {
-  display: block;
-}
-
 pre {
   margin: 0;
 }
