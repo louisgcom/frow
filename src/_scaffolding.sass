@@ -1,20 +1,24 @@
+@use "sass:color"
+@use "flexbox"
+@use "../variables"
+
 //
 // Scaffolding
 // --------------------------------------------------
 
 // Convert Hex colors to RGB for use within SVGs
 @function convert-to-rgba($color)
-  @return "rgba(" + red($color) + "," + green($color) + "," + blue($color) + "," + opacity($color) + ")"
+  @return "rgba(" + color.channel($color, "red") + "," + color.channel($color, "green") + "," + color.channel($color, "blue") + "," + color.channel($color, "alpha") + ")"
 
 =anchor-rules
   cursor: pointer
-  color: $link-color
+  color: variables.$link-color
   text-decoration: none
 
   &:hover,
   &:focus,
   &:active
-    color: $link-hover-color
+    color: variables.$link-hover-color
     text-decoration: underline
 
   p &
@@ -22,7 +26,7 @@
     display: inline
 
 
-@if $frow-enable-html-basics == true
+@if variables.$frow-enable-html-basics == true
   // Reset the box-sizing and tap highlight color
   *, :after, :before
     box-sizing: border-box
@@ -33,7 +37,7 @@
 
   // Set default text color
   body
-    color: $text-color
+    color: variables.$text-color
 
   // Reset h1-h6 margin and padding
   h1, h2, h3, h4, h5, h6
@@ -56,20 +60,20 @@
 // Buttons
 =frow-button-disabled
   cursor: default !important
-  border: 2px solid $button-disabled-border-color
-  background: repeating-linear-gradient(45deg, darken($button-disabled-border-color, 5%), darken($button-disabled-border-color, 5%) 3px, $white 3px, $white 6px)
-  background-color: darken($button-disabled-border-color, 15%)
-  color: $button-disabled-text-color
+  border: 2px solid variables.$button-disabled-border-color
+  background: repeating-linear-gradient(45deg, color.adjust(variables.$button-disabled-border-color, $lightness: -5%, $space: hsl), color.adjust(variables.$button-disabled-border-color, $lightness: -5%, $space: hsl) 3px, variables.$white 3px, variables.$white 6px)
+  background-color: color.adjust(variables.$button-disabled-border-color, $lightness: -15%, $space: hsl)
+  color: variables.$button-disabled-text-color
   transform: scale(1)
 
 =frow-button
   -webkit-appearance: none
   -moz-appearance: none
   background: none
-  background-color: $button-background-color
-  border: 2px solid $button-border-color
+  background-color: variables.$button-background-color
+  border: 2px solid variables.$button-border-color
   border-radius: 3px
-  color: $button-text-color
+  color: variables.$button-text-color
   cursor: pointer
   display: block
   font-size: 16px
@@ -77,19 +81,19 @@
   text-align: center
   outline: none
   padding: 7px
-  transition: transform $animate-speed-fast, background $animate-speed, border-color $animate-speed, color $animate-speed, box-shadow $animate-speed
+  transition: transform variables.$animate-speed-fast, background variables.$animate-speed, border-color variables.$animate-speed, color variables.$animate-speed, box-shadow variables.$animate-speed
 
   &:hover,
   &:focus,
   &:active
-    background-color: darken($button-background-color, 15%)
-    border-color: darken($button-border-color, 15%)
+    background-color: color.adjust(variables.$button-background-color, $lightness: -15%, $space: hsl)
+    border-color: color.adjust(variables.$button-border-color, $lightness: -15%, $space: hsl)
     outline: none
-    color: $button-text-color
+    color: variables.$button-text-color
     text-decoration: none
 
   &:active
-    transform: scale($button-active-size)
+    transform: scale(variables.$button-active-size)
 
   &:disabled
     +frow-button-disabled
@@ -99,7 +103,7 @@
     &:active
       +frow-button-disabled
 
-@if $frow-enable-buttons == true
+@if variables.$frow-enable-buttons == true
   // Buttons
   button,
   [type="button"],
@@ -110,7 +114,6 @@
     &.button-link
       &,
       &:disabled
-        +anchor-rules
         border: none
         outline: none
         padding: 0
@@ -119,12 +122,13 @@
         font-weight: inherit
         font-size: inherit
         text-transform: none
+        +anchor-rules
       &:disabled
         &,
         &:hover,
         &:focus,
         &:active
-          color: lighten($link-color, 40%)
+          color: color.adjust(variables.$link-color, $lightness: 40%, $space: hsl)
           text-decoration: none
 
     &.button-none
@@ -146,7 +150,7 @@
 
 //Labels
 =label-rules
-  color: $form-color-secondary
+  color: variables.$form-color-secondary
   font-size: 14px
   margin-bottom: 20px
   width: 100%
@@ -156,38 +160,38 @@
   background: transparent
   border: none
   border-radius: 0
-  border-bottom: 2px solid $form-color-secondary
+  border-bottom: 2px solid variables.$form-color-secondary
   padding: 8px 5px 4px
-  color: $text-color
+  color: variables.$text-color
   display: block
   font-size: 15px
   width: 100%
-  transition: border-color $animate-speed, color $animate-speed
+  transition: border-color variables.$animate-speed, color variables.$animate-speed
 
   &::placeholder
     opacity: 1
-    color: $form-placeholder-color
+    color: variables.$form-placeholder-color
 
   &:placeholder-shown
-    color: $form-placeholder-color
+    color: variables.$form-placeholder-color
 
   &::-webkit-input-placeholder
-    color: $form-placeholder-color
+    color: variables.$form-placeholder-color
 
   &::-moz-placeholder
     opacity: 1
-    color: $form-placeholder-color
+    color: variables.$form-placeholder-color
 
   &:-ms-input-placeholder
-    color: $form-placeholder-color
+    color: variables.$form-placeholder-color
 
   &:hover, &:focus
-    border-color: $form-color-primary
+    border-color: variables.$form-color-primary
     outline: none
 
   &:disabled
-    border-bottom: 1px dotted $form-color-secondary
-    color: $form-color-secondary
+    border-bottom: 1px dotted variables.$form-color-secondary
+    color: variables.$form-color-secondary
     cursor: default !important
     margin-bottom: 1px
 
@@ -200,34 +204,34 @@
   height: 20px
   margin: 0 5px 0 0
   cursor: pointer
-  border: 2px solid $form-color-primary
-  transition: transform $animate-speed, background $animate-speed, border-color $animate-speed, box-shadow $animate-speed
+  border: 2px solid variables.$form-color-primary
+  transition: transform variables.$animate-speed, background variables.$animate-speed, border-color variables.$animate-speed, box-shadow variables.$animate-speed
 
   &:hover, &:focus
-    transform: scale($form-focus-size)
+    transform: scale(variables.$form-focus-size)
 
   &:disabled
     cursor: default !important
     box-shadow: none
-    border-color: $button-disabled-border-color
+    border-color: variables.$button-disabled-border-color
 
 // Range Thumb
 =thumb-styles
   cursor: pointer
-  background: $form-color-primary
+  background: variables.$form-color-primary
   height: 18px
   width: 18px
   border-radius: 50%
   border: 0
-  transition: transform $animate-speed
+  transition: transform variables.$animate-speed
 
 =thumb-styles-focus
   outline: none
-  transform: scale($form-focus-size)
+  transform: scale(variables.$form-focus-size)
 
 =thumb-styles-disabled
   cursor: default !important
-  background: repeating-linear-gradient(45deg, darken($button-disabled-border-color, 5%), darken($button-disabled-border-color, 5%) 2px, $white 2px, $white 4px)
+  background: repeating-linear-gradient(45deg, color.adjust(variables.$button-disabled-border-color, $lightness: -5%, $space: hsl), color.adjust(variables.$button-disabled-border-color, $lightness: -5%, $space: hsl) 2px, variables.$white 2px, variables.$white 4px)
 
 // Range Track
 =track-styles-basics
@@ -237,11 +241,11 @@
   border-radius: 2px
 
 =track-styles-background
-  background: $form-color-secondary
+  background: variables.$form-color-secondary
 
 =track-styles-focus
-  background: $form-color-secondary
-  transition: background $animate-speed
+  background: variables.$form-color-secondary
+  transition: background variables.$animate-speed
 
 =track-styles-disabled
   cursor: default !important
@@ -251,7 +255,7 @@
   +track-styles-background
 
 // Forms
-@if $frow-enable-forms == true
+@if variables.$frow-enable-forms == true
   // Fieldsets
   fieldset
     border: none
@@ -260,7 +264,7 @@
 
   // Legends
   legend
-    color: $form-color-secondary
+    color: variables.$form-color-secondary
     font-size: 14px
     margin: 0
     padding: 0
@@ -277,7 +281,7 @@
     display: flex
     flex-direction: column
 
-    +flexbox-rules
+    +flexbox.flexbox-rules
 
   // Inputs
   input
@@ -301,7 +305,7 @@
         padding: 0
 
       &::-webkit-color-swatch
-        border-color: $form-color-secondary
+        border-color: variables.$form-color-secondary
         border-radius: 3px
 
     // Checkboxes
@@ -310,16 +314,16 @@
       +checkbox-rules
 
       &:checked
-        background-color: $form-color-primary
+        background-color: variables.$form-color-primary
         background-repeat: no-repeat
         background-position: center
         background-size: contain
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='8 8 36 36' version='1.1' xml:space='preserve'><path d='M14.1 27.2l7.1 7.2 16.7-16.8' fill='none' stroke='#{convert-to-rgba($white)}' stroke-width='5'/></svg>")
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='8 8 36 36' version='1.1' xml:space='preserve'><path d='M14.1 27.2l7.1 7.2 16.7-16.8' fill='none' stroke='#{convert-to-rgba(variables.$white)}' stroke-width='5'/></svg>")
 
         &:disabled
-          border-color: $button-disabled-border-color
-          background-color: darken($button-disabled-border-color, 15%)
-          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='8 8 36 36' version='1.1' xml:space='preserve'><path d='M14.1 27.2l7.1 7.2 16.7-16.8' fill='none' stroke='#{convert-to-rgba($form-color-primary)}' stroke-width='5'/></svg>"), repeating-linear-gradient(45deg, darken($button-disabled-border-color, 5%), darken($button-disabled-border-color, 5%) 3px, $white 3px, $white 6px)
+          border-color: variables.$button-disabled-border-color
+          background-color: color.adjust(variables.$button-disabled-border-color, $lightness: -15%, $space: hsl)
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='8 8 36 36' version='1.1' xml:space='preserve'><path d='M14.1 27.2l7.1 7.2 16.7-16.8' fill='none' stroke='#{convert-to-rgba(variables.$form-color-primary)}' stroke-width='5'/></svg>"), repeating-linear-gradient(45deg, color.adjust(variables.$button-disabled-border-color, $lightness: -5%, $space: hsl), color.adjust(variables.$button-disabled-border-color, $lightness: -5%, $space: hsl) 3px, variables.$white 3px, variables.$white 6px)
 
     // Radio Buttons
     &[type="radio"]
@@ -327,13 +331,13 @@
       +checkbox-rules
 
       &:checked
-        background-color: $form-color-primary
-        box-shadow: inset 0 0 0 2px $white
+        background-color: variables.$form-color-primary
+        box-shadow: inset 0 0 0 2px variables.$white
 
         &:disabled
-          box-shadow: inset 0 0 0 2px $white
-          border-color: $button-disabled-border-color
-          background-color: $button-disabled-border-color
+          box-shadow: inset 0 0 0 2px variables.$white
+          border-color: variables.$button-disabled-border-color
+          background-color: variables.$button-disabled-border-color
 
     // Range
     &[type="range"]
@@ -424,7 +428,7 @@
         +track-styles-disabled
 
       &::-ms-fill-lower
-        background: $form-color-secondary
+        background: variables.$form-color-secondary
         border-radius: 2px
 
       &:active::-ms-fill-lower
@@ -459,33 +463,33 @@
     -webkit-appearance: none
     -moz-appearance: none
     background: transparent
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' version='1.1' xml:space='preserve' stroke-linejoin='round'><g transform='matrix(-0.613836,-7.51732e-17,7.51732e-17,-0.613836,19.9111,16.8669)'><path d='M12.9 2.9L22.7 12.9 3.1 12.9 12.9 2.9Z' fill='#{convert-to-rgba($form-color-secondary)}'/></g></svg>")
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' version='1.1' xml:space='preserve' stroke-linejoin='round'><g transform='matrix(-0.613836,-7.51732e-17,7.51732e-17,-0.613836,19.9111,16.8669)'><path d='M12.9 2.9L22.7 12.9 3.1 12.9 12.9 2.9Z' fill='#{convert-to-rgba(variables.$form-color-secondary)}'/></g></svg>")
     background-position: right center
     background-repeat: no-repeat
     display: block
     border: none
-    border-bottom: 2px solid $form-color-secondary
+    border-bottom: 2px solid variables.$form-color-secondary
     border-radius: 0
-    color: $text-color
+    color: variables.$text-color
     font-size: 15px
     height: 27px
     margin-top: 4px
     padding: 3px 24px 3px 5px
     width: 100%
     cursor: pointer
-    transition: border-color $animate-speed, color $animate-speed, background $animate-speed
+    transition: border-color variables.$animate-speed, color variables.$animate-speed, background variables.$animate-speed
 
     &:hover, &:focus
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' version='1.1' xml:space='preserve' stroke-linejoin='round'><g transform='matrix(-0.613836,-7.51732e-17,7.51732e-17,-0.613836,19.9111,16.8669)'><path d='M12.9 2.9L22.7 12.9 3.1 12.9 12.9 2.9Z' fill='#{convert-to-rgba($form-color-primary)}'/></g></svg>")
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' version='1.1' xml:space='preserve' stroke-linejoin='round'><g transform='matrix(-0.613836,-7.51732e-17,7.51732e-17,-0.613836,19.9111,16.8669)'><path d='M12.9 2.9L22.7 12.9 3.1 12.9 12.9 2.9Z' fill='#{convert-to-rgba(variables.$form-color-primary)}'/></g></svg>")
       outline: none
-      border-color: $form-color-primary
+      border-color: variables.$form-color-primary
 
     &:disabled
       padding-bottom: 4px
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' version='1.1' xml:space='preserve' stroke-linejoin='round'><g transform='matrix(-0.613836,-7.51732e-17,7.51732e-17,-0.613836,19.9111,16.8669)'><path d='M12.9 2.9L22.7 12.9 3.1 12.9 12.9 2.9Z' fill='#{convert-to-rgba($form-color-secondary)}'/></g></svg>")
-      border-bottom: 1px dotted $form-color-secondary
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' version='1.1' xml:space='preserve' stroke-linejoin='round'><g transform='matrix(-0.613836,-7.51732e-17,7.51732e-17,-0.613836,19.9111,16.8669)'><path d='M12.9 2.9L22.7 12.9 3.1 12.9 12.9 2.9Z' fill='#{convert-to-rgba(variables.$form-color-secondary)}'/></g></svg>")
+      border-bottom: 1px dotted variables.$form-color-secondary
       cursor: default !important
-      color: $form-color-secondary
+      color: variables.$form-color-secondary
 
   // Textareas
   textarea

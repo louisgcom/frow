@@ -1,17 +1,14 @@
 /*! Frow CSS | MIT License | frowcss.com
-@use "sass:math"
-
-// Core variables
-@import variables
+@forward "variables"
 
 // Reset and dependencies
-@import src/normalize
+@use "src/normalize"
 
 // Core CSS
-@import src/flexbox
-@import src/scaffolding
-@import src/grid
+@use "src/flexbox"
+@use "src/scaffolding"
+@use "src/grid"
 
 // Utility classes
-@import src/responsive-utilities
-@import src/utilities
+@use "src/responsive-utilities"
+@use "src/utilities"

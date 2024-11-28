@@ -97,22 +97,12 @@
             <p class="bottom-margin">
               This customizability opens up more options for Frow, such as excluding various Frow features to reduce file size, or changing options on Frow's defaults. You can change the maximum number of grid columns, where the various responsive design breakpoints land, or even the color of text, buttons, and shadows.
             </p>
-            <h5 id="loading-your-variables-file">
-              <a href="#loading-your-variables-file">
-                Loading Your Variables File
-              </a>
-            </h5>
-            <p>
-              Load your variables before Frow is imported to overwrite Frow's defaults.
-            </p>
             <pre class="fake-code bottom-margin">
-<!--       --><span class="fake-comment">// Place your project's variables file before importing Frow</span>
-<!--       --><span class="fake-comment">// @import '[your-path-to]/variables';</span>
 <!--       -->
-<!--       -->@import '[your-path-to]/frow/frow';
+<!--       -->@use '[your-path-to]/frow/frow' with (
+<!--       -->  $frow-enable-buttons: false,
+<!--       -->);
 <!--       -->
-<!--       --><span class="fake-comment">// Import the rest of your project's Sass files after Frow</span>
-<!--       --><span class="fake-comment">// @import '[the-rest-of-your-sass-files]';</span>
 <!--     --></pre>
             <h5 id="disabling-features">
               <a href="#disabling-features">

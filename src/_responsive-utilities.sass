@@ -1,3 +1,9 @@
+@use "sass:list"
+@use "sass:map"
+@use "sass:math"
+@use "../variables"
+@use "grid"
+
 //
 // Responsive: Utility classes
 // --------------------------------------------------
@@ -28,34 +34,34 @@
   .frow.direction-column-reverse-#{$size}
     flex-direction: column-reverse
 
-@if $frow-enable-responsive-design-classes == true
+@if variables.$frow-enable-responsive-design-classes == true
   // Centered container element
   .frow-container
     width: 100%
     margin-right: auto
     margin-left: auto
-    padding-left: math.div($grid-gutter-width, 2)
-    padding-right: math.div($grid-gutter-width, 2)
+    padding-left: math.div(variables.$grid-gutter-width, 2)
+    padding-right: math.div(variables.$grid-gutter-width, 2)
 
-  @each $size in $sizes-names
-    @if map-get($sizes, $size) >= 310
-      @media (min-width: map-get($sizes, $size))
+  @each $size in grid.$sizes-names
+    @if map.get(grid.$sizes, $size) >= 310
+      @media (min-width: map.get(grid.$sizes, $size))
         .frow-container
-          max-width: round(map-get($sizes, $size)*0.0975)*10
+          max-width: math.round(map.get(grid.$sizes, $size)*0.0975)*10
 
   // Responsive hidden and visible classes
   $visible-sizes-all: ()
   $hidden-sizes-all: ()
   $frow-hidden-sizes-all: ()
 
-  @each $size in $sizes-names
-    $visible-sizes-all: append($visible-sizes-all, ".visible-#{$size}", comma)
+  @each $size in grid.$sizes-names
+    $visible-sizes-all: list.append($visible-sizes-all, ".visible-#{$size}", comma)
 
-  @each $size in $sizes-names
-    $hidden-sizes-all: append($hidden-sizes-all, ".hidden-#{$size}", comma)
+  @each $size in grid.$sizes-names
+    $hidden-sizes-all: list.append($hidden-sizes-all, ".hidden-#{$size}", comma)
 
-  @each $size in $sizes-names
-    $frow-hidden-sizes-all: append($frow-hidden-sizes-all, ".frow.hidden-#{$size}", comma)
+  @each $size in grid.$sizes-names
+    $frow-hidden-sizes-all: list.append($frow-hidden-sizes-all, ".frow.hidden-#{$size}", comma)
 
   #{$visible-sizes-all}
     display: none !important
@@ -66,24 +72,24 @@
   #{$frow-hidden-sizes-all}
     display: flex !important
 
-  @each $size in $sizes-names
-    @if index($sizes-names, $size) == 1
-      @media (max-width: nth(nth($sizes, 2), 2) - 1)
+  @each $size in grid.$sizes-names
+    @if list.index(grid.$sizes-names, $size) == 1
+      @media (max-width: list.nth(list.nth(grid.$sizes, 2), 2) - 1)
         +visible-classes($size)
-    @else if index($sizes-names, $size) != 1 and index($sizes-names, $size) < length($sizes)
-      @media (min-width: map-get($sizes, $size)) and (max-width: nth(nth($sizes, index($sizes-names, $size) + 1), 2) - 1)
+    @else if list.index(grid.$sizes-names, $size) != 1 and list.index(grid.$sizes-names, $size) < list.length(grid.$sizes)
+      @media (min-width: map.get(grid.$sizes, $size)) and (max-width: list.nth(list.nth(grid.$sizes, list.index(grid.$sizes-names, $size) + 1), 2) - 1)
         +visible-classes($size)
-    @else if index($sizes-names, $size) == length($sizes)
-      @media (min-width: nth(nth($sizes, length($sizes)), 2))
+    @else if list.index(grid.$sizes-names, $size) == list.length(grid.$sizes)
+      @media (min-width: list.nth(list.nth(grid.$sizes, list.length(grid.$sizes)), 2))
         +visible-classes($size)
 
-  @each $size in $sizes-names
-    @if index($sizes-names, $size) == 1
-      @media (max-width: nth(nth($sizes, 2), 2) - 1)
+  @each $size in grid.$sizes-names
+    @if list.index(grid.$sizes-names, $size) == 1
+      @media (max-width: list.nth(list.nth(grid.$sizes, 2), 2) - 1)
         +flex-directions($size)
-    @else if index($sizes-names, $size) != 1 and index($sizes-names, $size) < length($sizes)
-      @media (min-width: map-get($sizes, $size)) and (max-width: nth(nth($sizes, index($sizes-names, $size) + 1), 2) - 1)
+    @else if list.index(grid.$sizes-names, $size) != 1 and list.index(grid.$sizes-names, $size) < list.length(grid.$sizes)
+      @media (min-width: map.get(grid.$sizes, $size)) and (max-width: list.nth(list.nth(grid.$sizes, list.index(grid.$sizes-names, $size) + 1), 2) - 1)
         +flex-directions($size)
-    @else if index($sizes-names, $size) == length($sizes)
-      @media (min-width: nth(nth($sizes, length($sizes)), 2))
+    @else if list.index(grid.$sizes-names, $size) == list.length(grid.$sizes)
+      @media (min-width: list.nth(list.nth(grid.$sizes, list.length(grid.$sizes)), 2))
         +flex-directions($size)

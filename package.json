@@ -1,6 +1,6 @@
 {
   "name": "frow",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Flexbox Toolkit & Grid",
   "main": "frow.sass",
   "scripts": {
@@ -8,7 +8,7 @@
     "autoprefixer": "postcss --no-map -u autoprefixer -r dist/frow.css",
     "cssnano": "postcss --no-map -u cssnano -o dist/frow.min.css dist/frow.css",
     "csscopy": "FROW=`echo \"/* This code is not minified for example purposes only, remember to minify your code! */\" | cat - dist/frow.css` && echo \"$FROW\" > docs/styles/frow.css",
-    "letsgocopy": "cp -t docs/scripts node_modules/letsgo/letsgo.js",
+    "letsgocopy": "cp node_modules/letsgo/letsgo.js docs/scripts",
     "build:css": "run-s sass autoprefixer cssnano csscopy",
     "build:js": "run-s letsgocopy",
     "build": "run-s build:*",
@@ -44,13 +44,13 @@
   },
   "homepage": "https://frowcss.com",
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "browser-sync": "^2.27.5",
-    "cssnano": "^4.1.11",
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.3",
+    "cssnano": "^7.0.6",
     "letsgo": "^0.2.3",
     "npm-run-all": "^4.1.5",
-    "onchange": "^6.1.1",
-    "postcss-cli": "^6.1.3",
-    "sass": "^1.38.2"
+    "onchange": "^7.1.0",
+    "postcss-cli": "^11.0.0",
+    "sass-embedded": "^1.81.0"
   }
 }

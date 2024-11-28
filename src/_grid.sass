@@ -1,3 +1,9 @@
+@use "sass:list"
+@use "sass:map"
+@use "sass:math"
+@use "flexbox"
+@use "../variables"
+
 //
 // Frow and Columns
 // --------------------------------------------------
@@ -6,8 +12,8 @@
 //
 // Flexible rows contain your columns.
 
-$sizes: map-merge($sizes-mobile, $sizes-desktop)
-$sizes-names: map-keys($sizes)
+$sizes: map.merge(variables.$sizes-mobile, variables.$sizes-desktop)
+$sizes-names: map.keys($sizes)
 
 .frow
   display: flex
@@ -18,36 +24,36 @@ $sizes-names: map-keys($sizes)
   > *
     max-width: 100%
 
-  +flexbox-rules
+  +flexbox.flexbox-rules
 
   // Columns
   //
   // Generate the various columns widths.
 
-  @if $frow-enable-columns == true
+  @if variables.$frow-enable-columns == true
     $all-columns: ()
     $all-columns-direct: ()
 
     @each $size in $sizes-names
-      $all-columns: append($all-columns, "[class*=col-#{$size}]", comma)
+      $all-columns: list.append($all-columns, "[class*=col-#{$size}]", comma)
 
     @each $column in $all-columns
-      $all-columns-direct: append($all-columns-direct, "& > #{$column}", comma)
+      $all-columns-direct: list.append($all-columns-direct, "& > #{$column}", comma)
 
     &.gutters
-      margin-left: math.div(-$grid-gutter-width, 2)
-      margin-right: math.div(-$grid-gutter-width, 2)
+      margin-left: math.div(variables.$grid-gutter-width, -2)
+      margin-right: math.div(variables.$grid-gutter-width, -2)
 
       #{$all-columns-direct}
-        padding-left: math.div($grid-gutter-width, 2)
-        padding-right: math.div($grid-gutter-width, 2)
+        padding-left: math.div(variables.$grid-gutter-width, 2)
+        padding-right: math.div(variables.$grid-gutter-width, 2)
 
     #{$all-columns}
       width: 100%
 
     @each $size in $sizes-names
-      @media (min-width: map-get($sizes, $size))
-        @for $denominator from 1 through $grid-max-columns
+      @media (min-width: map.get($sizes, $size))
+        @for $denominator from 1 through variables.$grid-max-columns
           @for $numerator from 1 through $denominator
             .col-#{$size}-#{$numerator}-#{$denominator}
               width: math.percentage(math.div($numerator, $denominator))

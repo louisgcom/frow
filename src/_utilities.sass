@@ -1,3 +1,6 @@
+@use "sass:string"
+@use "../variables"
+
 //
 // Utility classes
 // --------------------------------------------------
@@ -5,7 +8,7 @@
 // Margin and padding classes
 // -------------------------
 =box-model($direction, $type, $amount, $multiplier)
-  .#{str-slice($type, 1, 1) + $direction}-#{$amount * $multiplier}
+  .#{string.slice($type, 1, 1) + $direction}-#{$amount * $multiplier}
     @if $direction == ""
       #{$type}: ($amount * $multiplier + px) !important
 
@@ -21,7 +24,7 @@
     @if $direction == "l" or $direction == "x"
       #{$type}-left: ($amount * $multiplier + px) !important
 
-@if $frow-enable-box-model-shorcuts == true
+@if variables.$frow-enable-box-model-shorcuts == true
   @each $type in margin, padding
     $frow-box-model-directions: "", x, y, t, r, b, l
 
@@ -37,7 +40,7 @@
         +box-model($direction, $type, $amount, $multiplier)
 
       @if $type == "margin"
-        .#{str-slice($type, 1, 1) + $direction}-auto
+        .#{string.slice($type, 1, 1) + $direction}-auto
           @if $direction == ""
             #{$type}: auto !important
 
@@ -53,7 +56,7 @@
           @if $direction == "l" or $direction == "x"
             #{$type}-left: auto !important
 
-@if $frow-enable-utilities == true
+@if variables.$frow-enable-utilities == true
   // Width and height rules
   // -------------------------
   .width-100
@@ -127,10 +130,10 @@
   // Box shadows
   // -------------------------
   .shadow-light
-    box-shadow: $shadow-light !important
+    box-shadow: variables.$shadow-light !important
 
   .shadow-dark
-    box-shadow: $shadow-dark !important
+    box-shadow: variables.$shadow-dark !important
 
   // Text align
   // -------------------------
